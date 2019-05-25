@@ -1,7 +1,9 @@
 package graphql.bookstore;
 
 import graphql.GraphQL;
+import graphql.bookstore.controller.AuthorController;
 import graphql.bookstore.controller.BookController;
+import graphql.bookstore.controller.OrderController;
 import graphql.schema.GraphQLSchema;
 import io.leangen.graphql.GraphQLSchemaGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,10 @@ public class GraphQLProvider {
 
     @Autowired
     private BookController bookController;
+    @Autowired
+    private OrderController orderController;
+    @Autowired
+    private AuthorController authorController;
 
     private GraphQL graphQL;
 
@@ -31,8 +37,10 @@ public class GraphQLProvider {
 
     private GraphQLSchema buildSchema() {
         return new GraphQLSchemaGenerator()
-                .withBasePackages("io.leangen") //not mandatory but strongly recommended to set your "root" packages
+                .withBasePackages("graphql.bookstore") //not mandatory but strongly recommended to set your "root" packages
                 .withOperationsFromSingleton(bookController) //register the service
+                .withOperationsFromSingleton(orderController)
+                .withOperationsFromSingleton(authorController)
                 .generate();
     }
 }
