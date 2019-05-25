@@ -1,4 +1,4 @@
-package graphql.bookstore.graphqlbookstorecodefirst;
+package graphql.bookstore;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
