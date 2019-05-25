@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class GraphqlBookstoreCodefirstApplication {
+public class GraphqlBookstoreApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(GraphqlBookstoreCodefirstApplication.class, args);
+		SpringApplication.run(GraphqlBookstoreApplication.class, args);
 	}
 
 }
